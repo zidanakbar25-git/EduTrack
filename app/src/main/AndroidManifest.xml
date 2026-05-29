@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EduTrack">
         <activity
+            android:name=".ui.matakuliah.MataKuliahFragment"
+            android:exported="false" />
+        <activity
+            android:name=".activity_matkul"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

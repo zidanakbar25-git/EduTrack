@@ -1,4 +1,6 @@
 package com.example.edutrack.ui.riwayat;
 
-public class RiwayatFragment {
+import androidx.fragment.app.Fragment;
+
+public class RiwayatFragment extends Fragment{
 }
