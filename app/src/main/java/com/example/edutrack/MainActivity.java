@@ -8,15 +8,18 @@ import com.example.edutrack.ui.riwayat.RiwayatFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Load fragment pertama
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, new DashboardFragment())
-                .commit();
+        // Load fragment pertama (Dashboard)
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new DashboardFragment())
+                    .commit();
+        }
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
         bottomNav.setOnItemSelectedListener(item -> {
@@ -24,14 +27,17 @@ public class MainActivity extends AppCompatActivity {
             if (id == R.id.nav_dashboard) {
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, new DashboardFragment()).commit();
+                return true;
             } else if (id == R.id.nav_matakuliah) {
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, new MataKuliahFragment()).commit();
+                return true;
             } else if (id == R.id.nav_riwayat) {
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, new RiwayatFragment()).commit();
+                return true;
             }
-            return true;
+            return false;
         });
     }
 }

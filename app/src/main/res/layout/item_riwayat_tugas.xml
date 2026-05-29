@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:paddingHorizontal="16dp"
+    android:paddingBottom="14dp">
+
+    <!-- Garis pemisah tipis -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F5F5F5"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Baris 1: Judul + Ikon Status -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvJudulRiwayat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Judul Tugas"
+            android:textColor="@color/text_primary"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <!-- Status icon: ✓ untuk selesai, ✗ untuk gagal -->
+        <ImageView
+            android:id="@+id/ivStatusIcon"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@android:drawable/checkbox_on_background"
+            android:contentDescription="Status" />
+    </LinearLayout>
+
+    <!-- Baris 2: Catatan -->
+    <TextView
+        android:id="@+id/tvCatatanRiwayat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="catatan"
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp"
+        android:layout_marginTop="2dp"
+        android:visibility="gone" />
+
+    <!-- Baris 3: Deadline + Badge Kategori -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="6dp">
+
+        <TextView
+            android:id="@+id/tvDeadlineRiwayat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Deadline: 1 Agt 2026"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvBadgeKategoriRiwayat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="3dp"
+            android:text="Tugas Biasa"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_badge"
+            android:textColor="@color/badge_biasa_text" />
+    </LinearLayout>
+
+    <!-- Baris 4: Label Status -->
+    <TextView
+        android:id="@+id/tvLabelStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="4dp"
+        android:text="SELESAI"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:textColor="@color/status_selesai_text"
+        android:background="@drawable/bg_status_selesai" />
+
+</LinearLayout>

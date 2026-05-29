@@ -1,4 +1,3 @@
-// database/AppDatabase.java
 package com.example.edutrack.database;
 
 import android.content.Context;
@@ -8,7 +7,7 @@ import androidx.room.RoomDatabase;
 import com.example.edutrack.model.MataKuliah;
 import com.example.edutrack.model.Tugas;
 
-@Database(entities = {MataKuliah.class, Tugas.class}, version = 1)
+@Database(entities = {MataKuliah.class, Tugas.class}, version = 2, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase instance;
 
@@ -21,7 +20,10 @@ public abstract class AppDatabase extends RoomDatabase {
                     context.getApplicationContext(),
                     AppDatabase.class,
                     "edutrack_db"
-            ).allowMainThreadQueries().build();
+            )
+            .fallbackToDestructiveMigration()
+            .allowMainThreadQueries()
+            .build();
         }
         return instance;
     }

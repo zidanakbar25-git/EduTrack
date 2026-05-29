@@ -10,11 +10,17 @@ public interface MataKuliahDao {
     @Query("SELECT * FROM mata_kuliah ORDER BY nama ASC")
     List<MataKuliah> getAll();
 
-    // Tambahan: ambil matkul by ID → dipakai Orang B & D
     @Query("SELECT * FROM mata_kuliah WHERE id = :id")
     MataKuliah getById(int id);
 
-    // Tambahan: cek apakah matkul punya tugas → dipakai Orang C sebelum hapus
+    // Cek duplikat nama (case-insensitive)
+    @Query("SELECT COUNT(*) FROM mata_kuliah WHERE LOWER(nama) = LOWER(:nama)")
+    int countByNama(String nama);
+
+    // Cek duplikat nama saat update (kecualikan id sendiri)
+    @Query("SELECT COUNT(*) FROM mata_kuliah WHERE LOWER(nama) = LOWER(:nama) AND id != :excludeId")
+    int countByNamaExclude(String nama, int excludeId);
+
     @Query("SELECT COUNT(*) FROM tugas WHERE mataKuliahId = :matkulId")
     int countTugasByMatkul(int matkulId);
 

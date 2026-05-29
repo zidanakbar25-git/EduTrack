@@ -1,4 +1,3 @@
-// model/MataKuliah.java
 package com.example.edutrack.model;
 
 import androidx.room.Entity;
@@ -9,4 +8,5 @@ public class MataKuliah {
     @PrimaryKey(autoGenerate = true)
     public int id;
     public String nama;
+    public long createdAt;
 }

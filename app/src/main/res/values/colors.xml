@@ -2,4 +2,38 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- EduTrack Brand -->
+    <color name="primary">#4A5E3A</color>       <!-- header hijau gelap -->
+    <color name="primary_light">#6B7F5A</color>
+    <color name="accent_orange">#E77D65</color> <!-- tombol tambah, aksi -->
+    <color name="bg_cream">#FAF8F5</color>       <!-- background layar -->
+    <color name="bg_card">#FFFFFF</color>
+    <color name="text_primary">#2B2B2B</color>
+    <color name="text_secondary">#7A7A7A</color>
+    <color name="text_hint">#A0A0A0</color>
+
+    <!-- Status deadline -->
+    <color name="deadline_red">#EF4444</color>
+    <color name="deadline_orange">#F97316</color>
+    <color name="deadline_yellow">#EAB308</color>
+    <color name="deadline_green">#22C55E</color>
+
+    <!-- Badge kategori -->
+    <color name="badge_biasa_bg">#FFF3CD</color>
+    <color name="badge_biasa_text">#856404</color>
+    <color name="badge_praktikum_bg">#D1ECF1</color>
+    <color name="badge_praktikum_text">#0C5460</color>
+    <color name="badge_besar_bg">#F8D7DA</color>
+    <color name="badge_besar_text">#721C24</color>
+
+    <!-- Tombol aksi card -->
+    <color name="btn_selesai">#4CAF50</color>
+    <color name="btn_gagal">#EF4444</color>
+
+    <!-- Status riwayat -->
+    <color name="status_selesai_bg">#DCFCE7</color>
+    <color name="status_selesai_text">#166534</color>
+    <color name="status_gagal_bg">#FEE2E2</color>
+    <color name="status_gagal_text">#991B1B</color>
 </resources>
