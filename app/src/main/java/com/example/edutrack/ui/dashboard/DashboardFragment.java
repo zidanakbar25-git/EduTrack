@@ -171,8 +171,28 @@ public class DashboardFragment extends Fragment implements TugasAdapter.OnTugasA
         List<String> namaMkList = new ArrayList<>();
         namaMkList.add("Pilih mata kuliah");
         for (MataKuliah mk : listMatkul) namaMkList.add(mk.nama);
-        ArrayAdapter<String> mkAdapter = new ArrayAdapter<>(requireContext(),
-                android.R.layout.simple_spinner_item, namaMkList);
+
+        ArrayAdapter<String> mkAdapter = new ArrayAdapter<String>(requireContext(),
+                android.R.layout.simple_spinner_item, namaMkList) {
+
+            // Item pertama tidak bisa diklik dan warnanya redup
+            @Override
+            public boolean isEnabled(int position) {
+                return position != 0;
+            }
+
+            @Override
+            public View getDropDownView(int position, View convertView, ViewGroup parent) {
+                View view = super.getDropDownView(position, convertView, parent);
+                TextView tv = (TextView) view;
+                if (position == 0) {
+                    tv.setTextColor(Color.parseColor("#2B2B2B")); // redup
+                } else {
+                    tv.setTextColor(Color.parseColor("#BDBDBD")); // normal
+                }
+                return view;
+            }
+        };
         mkAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spMatkul.setAdapter(mkAdapter);
 

@@ -145,16 +145,9 @@ public class MataKuliahFragment extends Fragment implements MataKuliahAdapter.On
         refreshDataList();
     }
 
+
     @Override
     public void onDelete(MataKuliah mataKuliah) {
-        int jumlahTugas = matkulDao.countTugasByMatkul(mataKuliah.id);
-        if (jumlahTugas > 0) {
-            Toast.makeText(getContext(),
-                    "Tidak bisa dihapus! Masih ada " + jumlahTugas + " tugas terkait.",
-                    Toast.LENGTH_LONG).show();
-            return;
-        }
-
         final Dialog dialog = new Dialog(requireContext());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_hapus_matkul);
@@ -162,9 +155,9 @@ public class MataKuliahFragment extends Fragment implements MataKuliahAdapter.On
             dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         }
 
-        TextView tvJudul       = dialog.findViewById(R.id.tvJudulHapus);
-        Button   btnHapusConf  = dialog.findViewById(R.id.btnHapusConfirm);
-        Button   btnBatal      = dialog.findViewById(R.id.btnBatal);
+        TextView tvJudul      = dialog.findViewById(R.id.tvJudulHapus);
+        Button   btnHapusConf = dialog.findViewById(R.id.btnHapusConfirm);
+        Button   btnBatal     = dialog.findViewById(R.id.btnBatal);
 
         tvJudul.setText("Hapus \"" + mataKuliah.nama + "\"?");
 
